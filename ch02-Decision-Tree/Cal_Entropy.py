@@ -24,7 +24,3 @@ def cal_entropy(data):
         prob = float(label_count[key]) / entries_num
         Entropy += prob * math.log(prob, 2) #此处使用numpy.math
     return (0-Entropy)
-
-
-        
-        

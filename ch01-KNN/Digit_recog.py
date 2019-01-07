@@ -5,6 +5,9 @@ Created on Tue Jul  3 12:06:45 2018
 @author: Administrator
 """
 
+import os
+PROJECT_PATH = os.path.abspath(".") + "\\ch01-KNN\\"
+
 from os import listdir
 from numpy import *
 from KNN_algr import *
@@ -44,7 +47,7 @@ def HandWritingTest(train_dir,test_dir):
         fname = test_File_list[i]
         fstr = fname.split('.')[0]
         fnumber = int(fstr.split('_')[0])
-        vec_test = img2vec('digits/testDigits/%s' % fname)
+        vec_test = img2vec(PROJECT_PATH + 'digits\\testDigits\\%s' % fname)
         Result = classify_KNN(vec_test, train_mat, labels, 3)
         print("the classifier came with: %d, the real answer is :%d " \
                  % (Result, fnumber))
