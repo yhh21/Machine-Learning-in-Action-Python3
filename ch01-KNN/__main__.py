@@ -5,9 +5,7 @@ Created on Mon Jul  2 21:18:57 2018
 @author: Administrator
 """
 
-import os
-PROJECT_PATH = os.path.abspath(".") + "\\ch01-KNN\\"
-
+from Path import *
 #from numpy import *
 
 from TestData import *

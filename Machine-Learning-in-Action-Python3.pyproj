@@ -5841,6 +5841,9 @@
     <Content Include="ch06-Ada_boost\horseColicTraining.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ch01-KNN\Path.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="ch01-KNN\Digit_recog.py" />
     <Compile Include="ch01-KNN\Feature_scaling.py" />
     <Compile Include="ch01-KNN\KNN_algr.py" />

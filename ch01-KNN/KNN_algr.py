@@ -18,6 +18,7 @@ def classify_KNN(test_X, train_set, labels, K):
     sqDistance = (diff ** 2).sum(axis=1)  
     #Distance = sqDistance ** 0.5
     #sorted_Distance = Distance.argsort()
+    # 单调性一致的情况下, 没必要执行耗时的 sqrt()
     sorted_Distance = sqDistance.argsort()
 
     # 对每个训练样本与输入的测试样本求欧几里得距离，即点之间的范数
