@@ -5,7 +5,7 @@ Created on Tue Jul  3 12:06:45 2018
 @author: Administrator
 """
 
-from Path import *
+from MyPath import *
 
 from os import listdir
 from numpy import *

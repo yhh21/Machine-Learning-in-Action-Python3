@@ -47,7 +47,9 @@ def Split_by_entropy(dataset):
             sub_set = Split_Data(dataset, i, value)
             prob = len(sub_set) / float(len(dataset))
             # 使用熵计算函数求出划分后的熵值
-            ent_new += prob * (0 - cal_entropy(sub_set))
+            #ent_new += prob * (0 - cal_entropy(sub_set))
+            # TODO 存疑, 上面的计算结果跟书里的例子不一样
+            ent_new += prob * cal_entropy(sub_set)
         
         # 由ent_old - ent_new选出划分对应的最优特征
         Info_gain = ent_old - ent_new

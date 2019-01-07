@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{0be99bce-0543-4d3c-9219-5e1e37e691b4}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>ch01-KNN\__main__.py</StartupFile>
+    <StartupFile>ch02-Decision-Tree\__main__.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -5841,7 +5841,7 @@
     <Content Include="ch06-Ada_boost\horseColicTraining.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ch01-KNN\Path.py">
+    <Compile Include="ch01-KNN\MyPath.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ch01-KNN\Digit_recog.py" />
@@ -5854,6 +5854,7 @@
     <Compile Include="ch02-Decision-Tree\Cal_Entropy.py" />
     <Compile Include="ch02-Decision-Tree\Classify_tree.py" />
     <Compile Include="ch02-Decision-Tree\Decision_Tree.py" />
+    <Compile Include="ch02-Decision-Tree\MyPath.py" />
     <Compile Include="ch02-Decision-Tree\Plot_tree.py" />
     <Compile Include="ch02-Decision-Tree\Split_by_entropy.py" />
     <Compile Include="ch02-Decision-Tree\__init__.py" />

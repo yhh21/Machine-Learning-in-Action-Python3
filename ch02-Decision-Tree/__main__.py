@@ -5,6 +5,8 @@ Created on Wed Jul  4 13:23:05 2018
 @author: Administrator
 """
 
+from MyPath import *
+
 from numpy import *
 from Cal_Entropy import *
 from Split_by_entropy import *
@@ -37,10 +39,10 @@ if __name__ == '__main__':
     myTree['no surfacing'][3] = 'maybe'
     createPlot(myTree)
 
-    with open('lenses.txt') as fp:
+    with open(PROJECT_PATH + 'lenses.txt') as fp:
         lenses = [line.strip().split('\t') for line in fp.readlines()]
         lensesLabels=['age','prescript','astigmatic','tearRate']
     
     lense_Tree = Create_Tree(lenses, lensesLabels)
-    #createPlot(lense_Tree)
-    print(classify(lense_Tree, lensesLabels, ['young','hyper','yes','reducedno']))
+    createPlot(lense_Tree)
+    print(classify(lense_Tree, lensesLabels, ['young','hyper','yes','reduced', 'no']))

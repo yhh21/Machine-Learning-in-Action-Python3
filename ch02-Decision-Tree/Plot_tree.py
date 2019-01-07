@@ -52,10 +52,8 @@ def retrieveTree(i):
     '''
    保存了树的测试数据
      '''
-    listOfTrees =[{'no surfacing': {0: 'no', 1: {'flippers': {0: 'no', \
-                                1: 'yes'}}}},{'no surfacing': {0: 'no', \
-    1: {'flippers': {0: {'head': {0: 'no', 1: 'yes'}}, 1: 'no'}}}}
-                  ]
+    listOfTrees =[{'no surfacing': {0: 'no', 1: {'flippers': {0: 'no', 1: 'yes'}}}}\
+                  ,{'no surfacing': {0: 'no', 1: {'flippers': {0: {'head': {0: 'no', 1: 'yes'}}, 1: 'no'}}}}]
     return listOfTrees[i]
 
 def plotmidtext(cntrpt,parentpt,txtstring):
@@ -102,6 +100,7 @@ def createPlot(intree):
     
     plottree.totalw=float(Num_of_leaf(intree))
     plottree.totald=float(Depth_of_tree(intree))
-    plottree.xoff=-0.6/plottree.totalw;plottree.yoff=1.2;
+    plottree.xoff=-0.6/plottree.totalw;
+    plottree.yoff=1;
     plottree(intree,(0.5,1.0),'')
     plt.show()
