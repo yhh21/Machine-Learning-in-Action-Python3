@@ -4,7 +4,7 @@ Created on Fri Jul  6 13:35:33 2018
 
 @author: Administrator
 """
-import numpy
+
 from numpy import *
 
 
@@ -32,7 +32,7 @@ def train_bayes(train_matrix, train_class):
             Prob_denom_1 += sum(train_matrix[i])
         else:
             Prob_num_0 += train_matrix[i]
-            Prob_denom_0 += sum(train_matrix[i])         
+            Prob_denom_0 += sum(train_matrix[i])
     p1_vec = log(Prob_num_1 / Prob_denom_1)
     p0_vec = log(Prob_num_0 / Prob_denom_0)
     # 将结果取自然对数，避免下溢出，即太多很小的数相乘造成的影响

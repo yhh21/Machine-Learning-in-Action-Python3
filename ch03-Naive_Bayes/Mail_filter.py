@@ -22,26 +22,30 @@ def Spam_filter(filename):
     # 保留单词长度大于3的单词
     '''
     #新建三个列表
-    docList = [];classList = [];fullTest = []
+    docList = []
+    classList = []
+    fullTest = []
     #i 由1到26
     for i in range(1,26):
         #打开并读取指定目录下的本文中的长字符串，并进行处理返回
-        wordList = text_parser(open(filename + '/spam/%d.txt' % i).read())
+        wordList = text_parser(open(filename + '\\spam\\%d.txt' % i).read())
         #将得到的字符串列表添加到docList
         docList.append(wordList)
         #将字符串列表中的元素添加到fullTest
         fullTest.extend(wordList)
         #类列表添加标签1
         classList.append(1)
+
         #打开并取得另外一个类别为0的文件，然后进行处理
-        wordList = text_parser(open(filename + '/ham/%d.txt' % i).read())
+        wordList = text_parser(open(filename + '\\ham\\%d.txt' % i).read())
         docList.append(wordList)
         fullTest.extend(wordList)
         classList.append(0)
     #将所有邮件中出现的字符串构建成字符串列表
     vocabList=Create_wordVec(docList)
     #构建一个大小为50的整数列表和一个空列表
-    trainingSet = list(range(50)); testSet = []
+    trainingSet = list(range(50))
+    testSet = []
     #随机选取1~50中的10个数，作为索引，构建测试集
     for i in range(10):
         #随机选取1~50中的一个整型数
@@ -52,7 +56,8 @@ def Spam_filter(filename):
         #同时将剩下的作为训练集
         del(trainingSet[randIndex])
     #新建两个列表
-    trainMat=[];trainClasses=[]
+    trainMat=[]
+    trainClasses=[]
     #遍历训练集中的吗每个字符串列表
 
     for docIndex in trainingSet:
@@ -73,4 +78,7 @@ def Spam_filter(filename):
         #对测试集中字符串向量进行预测分类，分类结果不等于实际结果
         if classify_bayes(array(wordVector),p0V,p1V,pSpam)!=classList[docIndex]:
             errorCount += 1
-        print('the error rate is:',float(errorCount)/ len(testSet))
+    error_rate = float(errorCount)/ len(testSet)
+    print('the error rate is:',error_rate)
+
+    return error_rate

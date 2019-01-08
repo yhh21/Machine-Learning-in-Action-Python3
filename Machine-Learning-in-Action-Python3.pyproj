@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{0be99bce-0543-4d3c-9219-5e1e37e691b4}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>ch02-Decision-Tree\__main__.py</StartupFile>
+    <StartupFile>ch03-Naive_Bayes\__main__.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -5861,6 +5861,7 @@
     <Compile Include="ch02-Decision-Tree\__main__.py" />
     <Compile Include="ch03-Naive_Bayes\classifier_test.py" />
     <Compile Include="ch03-Naive_Bayes\Mail_filter.py" />
+    <Compile Include="ch03-Naive_Bayes\MyPath.py" />
     <Compile Include="ch03-Naive_Bayes\RSS_filter.py" />
     <Compile Include="ch03-Naive_Bayes\Train_bayes.py" />
     <Compile Include="ch03-Naive_Bayes\word_bag.py" />

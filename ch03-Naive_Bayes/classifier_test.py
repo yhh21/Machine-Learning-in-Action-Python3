@@ -23,8 +23,8 @@ def classify_bayes(test_vec, p0, p1, p_pos):
         return 1
     else:
         return 0
-    
-#分类测试整体函数        
+
+#分类测试整体函数
 def Test_classify():
     #由数据集获取文档矩阵和类标签向量
     listOPosts,listClasses=loadDataSet()
