@@ -10,7 +10,8 @@ from numpy import *
 def loadData(filename):
     '''
     '''
-    datamat = []; labelmat = []
+    datamat = []
+    labelmat = []
     with open(filename) as fr:
         for line in fr.readlines():
             line_arr = line.strip().split()

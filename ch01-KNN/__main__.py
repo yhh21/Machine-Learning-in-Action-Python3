@@ -34,4 +34,3 @@ if __name__ == '__main__':
     print(testVec)
     
     HandWritingTest(PROJECT_PATH + 'digits\\trainingDigits', PROJECT_PATH + 'digits\\testDigits\\')
-    # 这行代码耗时比较久，可以单独运行

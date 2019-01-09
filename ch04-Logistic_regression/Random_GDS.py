@@ -18,14 +18,19 @@ def Stoch_gdescent(datamat, labels, num_iter = 150):
     weights = ones(n)   #
     
     for j in range(num_iter):
+        data_indexs = list(range(m))
         for i in range(m):
             #j << x时衰减效果受到影响，0.01则为了保存一定的速率
             alpha = 4 / (1.0 + j + i) + 0.01
-            randidx = int(random.uniform(0,len(range(m))))
+            #randidx = int(random.uniform(0,len(data_indexs)))
+            # 上面会重复选取
+            rand_index = int(random.uniform(0,len(data_indexs)))
+            randidx = data_indexs[rand_index]
             
             z = sum(datamat[randidx] * weights)
             y_pred = sigmoid(z)
             error = float(labels[randidx]) - y_pred
             # grad(x) = (y - f(x)) * x'为迭代公式（梯度）
             weights = weights + (alpha * error) * array(datamat[randidx])
+            del(data_indexs[rand_index])
     return weights

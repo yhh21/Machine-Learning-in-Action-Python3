@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{0be99bce-0543-4d3c-9219-5e1e37e691b4}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>ch03-Naive_Bayes\__main__.py</StartupFile>
+    <StartupFile>ch04-Logistic_regression\__main__.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -5870,6 +5870,7 @@
     <Compile Include="ch03-Naive_Bayes\__main__.py" />
     <Compile Include="ch04-Logistic_regression\Grad_descent.py" />
     <Compile Include="ch04-Logistic_regression\Logistic_classify.py" />
+    <Compile Include="ch04-Logistic_regression\MyPath.py" />
     <Compile Include="ch04-Logistic_regression\Plot_boundary.py" />
     <Compile Include="ch04-Logistic_regression\Random_GDS.py" />
     <Compile Include="ch04-Logistic_regression\__init__.py" />
