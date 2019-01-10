@@ -38,7 +38,9 @@ if __name__ == "__main__":
         sum_error_rate += Spam_filter(PROJECT_PATH + 'email')
     print("the average error rate : ", sum_error_rate / float(loop_num))
     
-    #ny = feedparser.parse('http://newyork.craigslist.org/stp/index.rss')
-    #sf = feedparser.parse('http://sfbay.craigslist.org/stp/index.rss')
-    #a, b, c = localWords(ny,sf)
-    #print(a,b,c)
+    '''
+    ny = feedparser.parse('http://newyork.craigslist.org/stp/index.rss')
+    sf = feedparser.parse('http://sfbay.craigslist.org/stp/index.rss')
+    a, b, c = localWords(ny,sf)
+    print(a,b,c)
+    '''
