@@ -17,9 +17,11 @@ def smoSimple(dataMat,classLabels,C,toler,maxIter):
     @maxIter    ：最大迭代次数
     '''
     #将列表形式转为矩阵或向量形式
-    dataMatrix=mat(dataMat);labelMat=mat(classLabels).transpose()
+    dataMatrix=mat(dataMat)
+    labelMat=mat(classLabels).transpose()
     #初始化b=0，获取矩阵行列
-    b=0;m,n=shape(dataMatrix)
+    b=0
+    m,n=shape(dataMatrix)
     #新建一个m行1列的向量
     alphas=mat(zeros((m,1)))
     #迭代次数为0
@@ -30,20 +32,16 @@ def smoSimple(dataMat,classLabels,C,toler,maxIter):
         #遍历样本集中样本
         for i in range(m):
             #计算支持向量机算法的预测值
-            fXi=float(multiply(alphas,labelMat).T*\
-            (dataMatrix*dataMatrix[i,:].T))+b
+            fXi=float(multiply(alphas,labelMat).T * (dataMatrix*dataMatrix[i,:].T))+b
             #计算预测值与实际值的误差
             Ei=fXi-float(labelMat[i])
             #如果不满足KKT条件，即labelMat[i]*fXi<1(labelMat[i]*fXi-1<-toler)
             #and alpha<C 或者labelMat[i]*fXi>1(labelMat[i]*fXi-1>toler)and alpha>0
-            if(((labelMat[i]*Ei < -toler)and(alphas[i] < C)) or \
-            ((labelMat[i]*Ei>toler) and (alphas[i]>0))):
+            if(((labelMat[i]*Ei < -toler)and(alphas[i] < C)) or ((labelMat[i]*Ei>toler) and (alphas[i]>0))):
                 #随机选择第二个变量alphaj
                 j = selectJrand(i,m)
                 #计算第二个变量对应数据的预测值
-
-                fXj = float(multiply(alphas,labelMat).T*(dataMatrix*\
-                            dataMatrix[j,:].T)) + b
+                fXj = float(multiply(alphas,labelMat).T*(dataMatrix * dataMatrix[j,:].T)) + b
                 #计算与测试与实际值的差值
                 Ej = fXj - float(labelMat[j])
                 #记录alphai和alphaj的原始值，便于后续的比较
@@ -60,30 +58,27 @@ def smoSimple(dataMat,classLabels,C,toler,maxIter):
                 if L==H: print("L==H");continue
                 #根据公式计算未经剪辑的alphaj
                 #------------------------------------------
-                eta=2.0*dataMatrix[i,:]*dataMatrix[j,:].T-\
-                    dataMatrix[i,:]*dataMatrix[i,:].T-\
-                    dataMatrix[j,:]*dataMatrix[j,:].T
+                eta=2.0*dataMatrix[i,:]*dataMatrix[j,:].T- dataMatrix[i,:]*dataMatrix[i,:].T- dataMatrix[j,:]*dataMatrix[j,:].T
                 #如果eta>=0,跳出本次循环
                 if eta>=0:print("eta>=0"); continue
                 alphas[j]-=labelMat[j]*(Ei-Ej)/eta
                 alphas[j]=clipAlpha(alphas[j],H,L)
                 #------------------------------------------    
                 #如果改变后的alphaj值变化不大，跳出本次循环    
-                if(abs(alphas[j]-alphaJold)<0.00001):print("j not moving\
-                enough");continue
+                if(abs(alphas[j]-alphaJold)<0.00001):print("j not moving enough");continue
                 #否则，计算相应的alphai值
                 alphas[i]+=labelMat[j]*labelMat[i]*(alphaJold-alphas[j])
                 #再分别计算两个alpha情况下对于的b值
                 b1 = b - Ei- labelMat[i]*(alphas[i]-alphaIold)*dataMatrix[i,:]\
-                 *dataMatrix[i,:].T - labelMat[j]*(alphas[j]-alphaJold)*\
-                 dataMatrix[i,:]*dataMatrix[j,:].T
+                    *dataMatrix[i,:].T - labelMat[j]*(alphas[j]-alphaJold)*\
+                    dataMatrix[i,:]*dataMatrix[j,:].T
                 b2=b-Ej-labelMat[i]*(alphas[i]-alphaIold)*\
                     dataMatrix[i,:]*dataMatrix[j,:].T-\
                     labelMat[j]*(alphas[j]-alphaJold)*\
                     dataMatrix[j,:]*dataMatrix[j,:].T
                 #如果0<alphai<C,那么b=b1
                 if(0<alphas[i]) and (C>alphas[i]):b=b1
-                #否则如果0<alphai<C,那么b=b1
+                #否则如果0<alphaj<C,那么b=b2
                 elif (0<alphas[j]) and (C>alphas[j]):b=b2
                 #否则，alphai，alphaj=0或C
                 else:b=(b1+b2)/2.0

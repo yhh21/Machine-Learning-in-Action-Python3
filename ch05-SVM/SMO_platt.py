@@ -16,7 +16,7 @@ def innerL(i, oS):
     if ((oS.labelMat[i]*Ei < -oS.tol) and (oS.alphas[i] < oS.C)) or ((oS.labelMat[i]*Ei > oS.tol) and (oS.alphas[i] > 0)):
         j,Ej = Opt_smo.selectJ(i, oS, Ei) #this has been changed from selectJrand
         alphaIold = oS.alphas[i].copy(); alphaJold = oS.alphas[j].copy();
-        if (oS.labelMat[i] != oS.labelMat[j]):
+        if (int(oS.labelMat[i]) != int(oS.labelMat[j])):
             L = max(0, oS.alphas[j] - oS.alphas[i])
             H = min(oS.C, oS.C + oS.alphas[j] - oS.alphas[i])
         else:
@@ -46,7 +46,7 @@ def smoP(dataMatIn, classLabels, C, toler, maxIter,kTup=('lin', 0)):    #full Pl
     while (iter < maxIter) and ((alphaPairsChanged > 0) or (entireSet)):
         alphaPairsChanged = 0
         if entireSet:   #go over all
-            for i in range(oS.m):        
+            for i in range(oS.m):
                 alphaPairsChanged += innerL(i,oS)
                 print("fullSet, iter: %d i:%d, pairs changed %d" % (iter,i,alphaPairsChanged))
             iter += 1
@@ -57,6 +57,6 @@ def smoP(dataMatIn, classLabels, C, toler, maxIter,kTup=('lin', 0)):    #full Pl
                 print("non-bound, iter: %d i:%d, pairs changed %d" % (iter,i,alphaPairsChanged))
             iter += 1
         if entireSet: entireSet = False #toggle entire set loop
-        elif (alphaPairsChanged == 0): entireSet = True  
+        elif (alphaPairsChanged == 0): entireSet = True
         print("iteration number: %d" % iter)
     return oS.b,oS.alphas

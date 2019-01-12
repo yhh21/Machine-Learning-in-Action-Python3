@@ -11,7 +11,8 @@ import random
 # 解析文本数据函数，提取每个样本的特征组成向量，添加到数据矩阵
 # 添加样本标签到标签向量
 def loadDataSet(filename):
-    dataMat=[];labelMat=[]
+    dataMat=[]
+    labelMat=[]
     fr=open(filename)
     
     for line in fr.readlines():
@@ -34,7 +35,7 @@ def selectJrand(i,m):
 #3 约束范围L<=alphaj<=H内的更新后的alphaj值    
 def clipAlpha(aj,H,L):
     if aj > H:
-        aj = H
+        return H
     if L > aj:
-        aj = L
+        return L
     return aj

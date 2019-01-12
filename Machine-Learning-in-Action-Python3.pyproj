@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{0be99bce-0543-4d3c-9219-5e1e37e691b4}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>ch04-Logistic_regression\__main__.py</StartupFile>
+    <StartupFile>ch05-SVM\__main__.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -5878,6 +5878,7 @@
     <Compile Include="ch05-SVM\image_recog.py" />
     <Compile Include="ch05-SVM\Kernel.py" />
     <Compile Include="ch05-SVM\load_data.py" />
+    <Compile Include="ch05-SVM\MyPath.py" />
     <Compile Include="ch05-SVM\Opt_smo.py" />
     <Compile Include="ch05-SVM\SMO_platt.py" />
     <Compile Include="ch05-SVM\smo_simp.py" />

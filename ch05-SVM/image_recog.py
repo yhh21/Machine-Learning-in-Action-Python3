@@ -5,6 +5,8 @@ Created on Tue Jul 10 13:28:31 2018
 @author: Administrator
 """
 
+from MyPath import *
+
 from numpy import *
 from SMO_platt import *
 import math
@@ -32,12 +34,13 @@ def loadImages(dirName):
         if classNumStr == 9: hwLabels.append(-1)
         else: hwLabels.append(1)
         trainingMat[i,:] = img2vector('%s/%s' % (dirName, fileNameStr))
-    return trainingMat, hwLabels    
+    return trainingMat, hwLabels
 
 def testDigits(kTup=('rbf', 10)):
-    dataArr,labelArr = loadImages('digits/trainingDigits')
+    dataArr,labelArr = loadImages(PROJECT_PATH + 'digits/trainingDigits')
     b,alphas = smoP(dataArr, labelArr, 200, 0.0001, 10000, kTup)
-    datMat=mat(dataArr); labelMat = mat(labelArr).transpose()
+    datMat=mat(dataArr)
+    labelMat = mat(labelArr).transpose()
     svInd=nonzero(alphas.A>0)[0]
     sVs=datMat[svInd] 
     labelSV = labelMat[svInd];
@@ -49,9 +52,11 @@ def testDigits(kTup=('rbf', 10)):
         predict=kernelEval.T * multiply(labelSV,alphas[svInd]) + b
         if sign(predict)!=sign(labelArr[i]): errorCount += 1
     print ("the training error rate is: %f" % (float(errorCount)/m))
-    dataArr,labelArr = loadImages('testDigits')
+
+    dataArr,labelArr = loadImages(PROJECT_PATH + 'digits/testDigits')
     errorCount = 0
-    datMat=mat(dataArr); labelMat = mat(labelArr).transpose()
+    datMat=mat(dataArr)
+    labelMat = mat(labelArr).transpose()
     m,n = shape(datMat)
     for i in range(m):
         kernelEval = kernelTrans(sVs,datMat[i,:],kTup)

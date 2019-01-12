@@ -5,6 +5,8 @@ Created on Tue Jul 10 12:59:45 2018
 @author: Administrator
 """
 
+from MyPath import *
+
 from numpy import *
 from load_data import *
 import SMO_platt
@@ -27,9 +29,10 @@ def kernelTrans( X, A, kTup):
     return K
 
 def testRbf(k1=1.3):
-    dataArr,labelArr = loadDataSet('testSetRBF.txt')
+    dataArr,labelArr = loadDataSet(PROJECT_PATH + 'testSetRBF.txt')
     b,alphas = SMO_platt.smoP(dataArr, labelArr, 200, 0.0001, 10000, ('rbf', k1)) #C=200 important
-    datMat=mat(dataArr); labelMat = mat(labelArr).transpose()
+    datMat=mat(dataArr)
+    labelMat = mat(labelArr).transpose()
     svInd=nonzero(alphas.A>0)[0]
     sVs=datMat[svInd] #get matrix of only support vectors
     labelSV = labelMat[svInd];
@@ -41,9 +44,11 @@ def testRbf(k1=1.3):
         predict=kernelEval.T * multiply(labelSV,alphas[svInd]) + b
         if sign(predict)!=sign(labelArr[i]): errorCount += 1
     print("the training error rate is: %f" % (float(errorCount)/m))
-    dataArr,labelArr = loadDataSet('testSetRBF2.txt')
+
+    dataArr,labelArr = loadDataSet(PROJECT_PATH + 'testSetRBF2.txt')
     errorCount = 0
-    datMat=mat(dataArr); labelMat = mat(labelArr).transpose()
+    datMat=mat(dataArr)
+    labelMat = mat(labelArr).transpose()
     m,n = shape(datMat)
     for i in range(m):
         kernelEval = kernelTrans(sVs,datMat[i,:],('rbf', k1))
