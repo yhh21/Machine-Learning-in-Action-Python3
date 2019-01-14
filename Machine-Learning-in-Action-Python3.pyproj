@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{0be99bce-0543-4d3c-9219-5e1e37e691b4}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>ch05-SVM\__main__.py</StartupFile>
+    <StartupFile>ch06-Ada_boost\__main__.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -5884,6 +5884,7 @@
     <Compile Include="ch05-SVM\smo_simp.py" />
     <Compile Include="ch05-SVM\__init__.py" />
     <Compile Include="ch05-SVM\__main__.py" />
+    <Compile Include="ch06-Ada_boost\MyPath.py" />
     <Compile Include="ch06-Ada_boost\ROC_plot.py" />
     <Compile Include="ch06-Ada_boost\Stump_classify.py" />
     <Compile Include="ch06-Ada_boost\Test_classify.py" />

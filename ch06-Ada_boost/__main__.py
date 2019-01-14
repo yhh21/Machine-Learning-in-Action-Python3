@@ -4,6 +4,7 @@ Created on Fri Jul 13 12:21:58 2018
 
 @author: Administrator
 """
+
 from numpy import *
 from Stump_classify import *
 from Test_classify import *
@@ -22,10 +23,7 @@ def loadSimpData():
 
 if __name__ == '__main__':
     data, label = loadSimpData()
-    datArr,labelArr = loadDataSet('horseColicTraining.txt')
-    classifierArr = adaBoostTrainDS(datArr,labelArr,9)
-    testArr,testLabelArr = loadDataSet('horseColicTest.txt')
-    prediciton = adaClassify(testArr,classifierArr)
+    classifierArr, aggClassEst = adaBoostTrainDS(data,label,9)
+    prediciton = adaClassify([[5, 5],[0,0]],classifierArr)
 
-    error = mat(ones((67,1)))
-    error[prediciton != mat(testLabelArr ).T] .sum() 
+    classify()

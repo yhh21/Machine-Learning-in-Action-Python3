@@ -5,8 +5,15 @@ Created on Fri Jul 13 12:59:35 2018
 @author: Administrator
 """
 
+from MyPath import *
+
 from Stump_classify import *
+from Train_adaboost import *
 from numpy import *
+
+from ROC_plot import *
+
+
 #测试adaBoost，adaBoost分类函数
 #@datToClass:测试数据点
 #@classifierArr：构建好的最终分类器
@@ -31,7 +38,8 @@ def adaClassify(datToClass,classifierArr):
 
 def loadDataSet(filename):
     #创建数据集矩阵，标签向量
-    dataMat=[];labelMat=[]
+    dataMat=[]
+    labelMat=[]
     #获取特征数目(包括最后一类标签)
     #readline():读取文件的一行
     #readlines:读取整个文件所有行
@@ -47,20 +55,23 @@ def loadDataSet(filename):
         #数据矩阵
         dataMat.append(lineArr)
         #标签向量
-        labelMat.append(float(curLine[-1]))
+        #labelMat.append(float(curLine[-1]))
+        # {0, 1} to {-1, 1}
+        labelMat.append(float(curLine[-1]) * 2 - 1)
     return dataMat,labelMat
 
 #训练和测试分类器
 def classify():
     #利用训练集训练分类器
-    datArr,labelArr=loadDataSet('horseColicTraining.txt')
+    datArr,labelArr = loadDataSet(PROJECT_PATH + 'horseColicTraining.txt')
     #得到训练好的分类器
-    classifierArray=adaBoostTrainDS(datArr,labelArr,10)
+    classifierArr, aggClassEst = adaBoostTrainDS(datArr,labelArr, 10)
+    plotROC(aggClassEst.T, labelArr)
     #利用测试集测试分类器的分类效果
-    testArr,testLabelArr=loadDataSet('horseColicTest.txt')
-    prediction=adaClassify(testArr,classifierArray)
+    testArr,testLabelArr = loadDataSet(PROJECT_PATH + 'horseColicTest.txt')
+    prediction = adaClassify(testArr,classifierArr)
     #输出错误率
-    num=shape(mat(labelArr))[1]
+    num=shape(mat(testLabelArr))[1]
     errArr=mat(ones((num,1)))
     error=errArr[prediction!=mat(testLabelArr).T].sum()
-    print("the errorRate is: %.2f",errorRate=float(error)/float((num)))
+    print("the errorRate is: %.2f" % (float(error)/float(num)))

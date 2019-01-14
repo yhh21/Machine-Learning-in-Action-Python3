@@ -10,7 +10,7 @@ from Stump_classify import *
 #adaBoost算法
 #@dataArr：数据矩阵
 #@classLabels:标签向量
-#@numIt:迭代次数    
+#@numIt:迭代次数
 def adaBoostTrainDS(dataArr,classLabels,numIt=40):
     '''
     @adaBoost算法
@@ -25,7 +25,7 @@ def adaBoostTrainDS(dataArr,classLabels,numIt=40):
     #初始化权重向量的每一项值相等
     D=mat(ones((m,1))/m)
     #累计估计值向量
-    aggClassEst=mat((m,1))
+    aggClassEst=mat(zeros((m,1)))
     #循环迭代次数
     for i in range(numIt):
         #根据当前数据集，标签及权重建立最佳单层决策树
@@ -47,16 +47,16 @@ def adaBoostTrainDS(dataArr,classLabels,numIt=40):
         D=multiply(D,exp(expon))
         D=D/D.sum()
         #累加当前单层决策树的加权预测值
-        aggClassEst = aggClassEst + alpha * classEst
+        aggClassEst += alpha * classEst
         #aggClassEst = array(aggClassEst)
         print("aggClassEst",aggClassEst.T)
         #求出分类错的样本个数
-        aggErrors=multiply(sign(aggClassEst)!=\
-                    mat(classLabels).T,ones((m,1)))
+        aggErrors=multiply(sign(aggClassEst) != mat(classLabels).T
+                           ,ones((m,1)))
         #计算错误率
         errorRate=aggErrors.sum()/m
-        print("total error:",errorRate,"\n")
+        print("cur iter num : ", i,", total error:",errorRate,"\n")
         #错误率为0.0退出循环
         if errorRate==0.0:break
     #返回弱分类器的组合列表
-    return weakClassArr
+    return weakClassArr, aggClassEst

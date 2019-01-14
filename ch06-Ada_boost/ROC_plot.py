@@ -5,6 +5,8 @@ Created on Fri Jul 13 13:02:49 2018
 @author: Administrator
 """
 
+from numpy import *
+
 def plotROC(predStrengths, classLabels):
     import matplotlib.pyplot as plt
     cur = (1.0,1.0) #cursor

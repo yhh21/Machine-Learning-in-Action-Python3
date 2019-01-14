@@ -22,6 +22,7 @@ import numpy as np
 #返回最佳单层决策树
 """
 def stumpClassify(dataMatrix,dimen,threshVal,threshIneq):#just classify the data
+    # deal with {-1, 1}
     retArray = ones((shape(dataMatrix)[0],1))
     if threshIneq == 'lt':
         retArray[dataMatrix[:,dimen] <= threshVal] = -1.0
@@ -30,12 +31,16 @@ def stumpClassify(dataMatrix,dimen,threshVal,threshIneq):#just classify the data
     return retArray
         
 def buildStump(dataArr,classLabels,D):
-    dataMatrix = mat(dataArr); labelMat = mat(classLabels).T
+    dataMatrix = mat(dataArr)
+    labelMat = mat(classLabels).T
     m,n = shape(dataMatrix)
-    numSteps = 10.0; bestStump = {}; bestClasEst = mat(zeros((m,1)))
+    numSteps = 10.0
+    bestStump = {}
+    bestClasEst = mat(zeros((m,1)))
     minError = inf #init error sum, to +infinity
     for i in range(n):#loop over all dimensions
-        rangeMin = dataMatrix[:,i].min(); rangeMax = dataMatrix[:,i].max();
+        rangeMin = dataMatrix[:,i].min()
+        rangeMax = dataMatrix[:,i].max()
         stepSize = (rangeMax-rangeMin)/numSteps
         for j in range(-1,int(numSteps)+1):#loop over all range in current dimension
             for inequal in ['lt', 'gt']: #go over less than and greater than
