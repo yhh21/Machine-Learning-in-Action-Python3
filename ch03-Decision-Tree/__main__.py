@@ -39,7 +39,7 @@ if __name__ == '__main__':
     myTree['no surfacing'][3] = 'maybe'
     createPlot(myTree)
 
-    with open(PROJECT_PATH + 'lenses.txt') as fp:
+    with open(PROJECT_DATA_PATH + 'lenses.txt') as fp:
         lenses = [line.strip().split('\t') for line in fp.readlines()]
         lensesLabels=['age','prescript','astigmatic','tearRate']
     
