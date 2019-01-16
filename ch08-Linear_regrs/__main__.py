@@ -45,7 +45,7 @@ def GetLeastSquaresWeights(xArr, yArr) :
 
 
 if __name__ == '__main__':
-    xArr, yArr = loadDataSet(PROJECT_PATH + 'ex0.txt')
+    xArr, yArr = loadDataSet(PROJECT_DATA_PATH + 'ex0.txt')
 
     ws = standRegres(xArr, yArr)
     Plot_BestFitLine(xArr, yArr, ws)
@@ -55,7 +55,7 @@ if __name__ == '__main__':
     yHat = lwlrTest(xArr, xArr, yArr, 0.003)
     Plot_LWLR(xArr, yArr, yHat)
     
-    abX, abY = loadDataSet(PROJECT_PATH + 'abalone.txt')
+    abX, abY = loadDataSet(PROJECT_DATA_PATH + 'abalone.txt')
 
     PredictAgeOfAbaloneByLWLE(abX, abY)
 
