@@ -15,7 +15,7 @@ from Random_GDS import *
 from Logistic_classify import *
 
 if __name__ == '__main__':
-    data, label = loadData(PROJECT_PATH + 'testSet.txt')
+    data, label = loadData(PROJECT_DATA_PATH + 'testSet.txt')
 
     weights = Grad_descent(data, label)
     print(weights)

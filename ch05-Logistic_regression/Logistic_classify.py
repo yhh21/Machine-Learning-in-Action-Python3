@@ -19,9 +19,9 @@ def classifyVec(inp, weights):
 #logistic回归预测算法
 def colicTest():
     # 打开训练数据集
-    frTrain=open(PROJECT_PATH + 'horseColicTraining.txt')
+    frTrain=open(PROJECT_DATA_PATH + 'horseColicTraining.txt')
     # 打开测试数据集
-    frTest=open(PROJECT_PATH + 'horseColicTest.txt')
+    frTest=open(PROJECT_DATA_PATH + 'horseColicTest.txt')
 
     trainingSet=[]
     trainingLabels=[]
