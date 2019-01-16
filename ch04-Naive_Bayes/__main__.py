@@ -35,7 +35,7 @@ if __name__ == "__main__":
     sum_error_rate = 0.0
     loop_num = 10
     for i in range(loop_num) :
-        sum_error_rate += Spam_filter(PROJECT_PATH + 'email')
+        sum_error_rate += Spam_filter(PROJECT_DATA_PATH + 'email')
     print("the average error rate : ", sum_error_rate / float(loop_num))
     
     '''
