@@ -46,11 +46,13 @@ if __name__ == '__main__':
 
     yHat = createForeCast(myTree, testMat[:,0])
     #yHat = createForeCast(myTree, testMat[:,0], modelTreeEval)
-
+    
+    '''
     ws, X, Y = linearSolve(trainMat)
     m, n = shape(testMat)
     yHat = mat(zeros((m,1)))
     for i in range(m):
         yHat[i, 0] = testMat[i,0] * ws[1,0] + ws[0,0]
+    '''
 
     print(corrcoef(yHat, testMat[:,1], rowvar=0)[0,1])
