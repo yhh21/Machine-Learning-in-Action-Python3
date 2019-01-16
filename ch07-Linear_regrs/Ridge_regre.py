@@ -5,6 +5,7 @@ Created on Sat Jul 14 15:04:10 2018
 @author: Administrator
 """
 
+from numpy import *
 
 def ridgeRegres(xMat,yMat,lam=0.2):
     '''
@@ -27,7 +28,8 @@ def ridgeRegres(xMat,yMat,lam=0.2):
 
 #特征需要标准化处理，使所有特征具有相同重要性
 def ridgeTest(xArr,yArr):
-    xMat=mat(xArr);yMat=mat(yArr).T
+    xMat=mat(xArr)
+    yMat=mat(yArr).T
     #计算均值
     yMean=mean(yMat,0)
     yMat=yMat-yMean

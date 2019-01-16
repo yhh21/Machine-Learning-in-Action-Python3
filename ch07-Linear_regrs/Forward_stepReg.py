@@ -5,22 +5,29 @@ Created on Sat Jul 14 15:05:20 2018
 @author: Administrator
 """
 
+from numpy import *
+from Local_weightLR import *
+from Stand_Linear import *
+
 #前向逐步回归
-#@eps：每次迭代需要调整的步长    
+#@eps：每次迭代需要调整的步长
 def stageWise(xArr,yArr,eps=0.01,numIt=100):
-    xMat=mat(xArr);yMat=mat(yArr)
+    xMat=mat(xArr)
+    yMat=mat(yArr).T
     yMean=mean(yMat,0)
     yMat=yMat-yMean
     #将特征标准化处理为均值为0，方差为1
     xMat=regularize(xMat)
     m,n=shape(xMat)
     #将每次迭代中得到的回归系数存入矩阵
-    returnMat=zeros((numIt,m))
-    ws=zeros((n,1));wsTest=ws.copy();wsMat=ws.copy()
+    returnMat=zeros((numIt, n))
+    ws=zeros((n,1))
+    wsTest=ws.copy()
+    wsMat=ws.copy()
     for i in range(numIt):
         print(ws.T)
         #初始化最小误差为正无穷
-        lowestError=inf;
+        lowestError=inf
         for j in range(n):
             #对每个特征的系数执行增加和减少eps*sign操作
             for sign in [-1,1]:
@@ -34,5 +41,5 @@ def stageWise(xArr,yArr,eps=0.01,numIt=100):
                     lowestError=rssE
                     wsMat=wsTest
         ws=wsMat.copy()
-        returnMat[i,:]=ws
+        returnMat[i,:]=ws.T
     return returnMat

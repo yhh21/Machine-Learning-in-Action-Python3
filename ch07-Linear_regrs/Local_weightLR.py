@@ -5,6 +5,8 @@ Created on Sat Jul 14 15:03:07 2018
 @author: Administrator
 """
 
+from numpy import *
+
 #局部加权线性回归
 def rssError(yArr,yHatArr):
     #返回平方误差和
@@ -20,7 +22,8 @@ def lwlr(testPoint,xArr,yArr,k=1.0):
     @k：用户定义的参数，决定权重的大小，默认1.0
     '''
     #转为矩阵形式
-    xMat=mat(xArr);yMat=mat(yArr).T
+    xMat=mat(xArr)
+    yMat=mat(yArr).T
     #样本数
     m=shape(xMat)[0]
     #初始化权重矩阵为m*m的单位阵
@@ -42,7 +45,7 @@ def lwlr(testPoint,xArr,yArr,k=1.0):
     #计算测试点的预测值
     return testPoint*ws
 
-#测试集进行预测    
+#测试集进行预测
 def lwlrTest(testArr,xArr,yArr,k=1.0):
     #测试集样本数
     m=shape(testArr)[0]

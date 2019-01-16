@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{0be99bce-0543-4d3c-9219-5e1e37e691b4}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>ch06-Ada_boost\__main__.py</StartupFile>
+    <StartupFile>ch07-Linear_regrs\__main__.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -5839,6 +5839,9 @@
     <Content Include="ch05-SVM\testSetRBF2.txt" />
     <Content Include="ch06-Ada_boost\horseColicTest.txt" />
     <Content Include="ch06-Ada_boost\horseColicTraining.txt" />
+    <Content Include="ch07-Linear_regrs\abalone.txt" />
+    <Content Include="ch07-Linear_regrs\ex0.txt" />
+    <Content Include="ch07-Linear_regrs\ex1.txt" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ch01-KNN\MyPath.py">
@@ -5892,8 +5895,12 @@
     <Compile Include="ch06-Ada_boost\__init__.py" />
     <Compile Include="ch06-Ada_boost\__main__.py" />
     <Compile Include="ch07-Linear_regrs\Build_model.py" />
+    <Compile Include="ch07-Linear_regrs\DrawPlot.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="ch07-Linear_regrs\Forward_stepReg.py" />
     <Compile Include="ch07-Linear_regrs\Local_weightLR.py" />
+    <Compile Include="ch07-Linear_regrs\MyPath.py" />
     <Compile Include="ch07-Linear_regrs\Price_predict.py" />
     <Compile Include="ch07-Linear_regrs\Ridge_regre.py" />
     <Compile Include="ch07-Linear_regrs\Stand_Linear.py" />
