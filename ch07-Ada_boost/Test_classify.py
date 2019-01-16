@@ -63,12 +63,12 @@ def loadDataSet(filename):
 #训练和测试分类器
 def classify():
     #利用训练集训练分类器
-    datArr,labelArr = loadDataSet(PROJECT_PATH + 'horseColicTraining.txt')
+    datArr,labelArr = loadDataSet(PROJECT_DATA_PATH + 'horseColicTraining.txt')
     #得到训练好的分类器
     classifierArr, aggClassEst = adaBoostTrainDS(datArr,labelArr, 10)
     plotROC(aggClassEst.T, labelArr)
     #利用测试集测试分类器的分类效果
-    testArr,testLabelArr = loadDataSet(PROJECT_PATH + 'horseColicTest.txt')
+    testArr,testLabelArr = loadDataSet(PROJECT_DATA_PATH + 'horseColicTest.txt')
     prediction = adaClassify(testArr,classifierArr)
     #输出错误率
     num=shape(mat(testLabelArr))[1]
