@@ -16,7 +16,7 @@ from Kernel import *
 from image_recog import *
 
 if __name__ == '__main__':
-    data, label = loadDataSet(PROJECT_PATH + 'testSet.txt')
+    data, label = loadDataSet(PROJECT_DATA_PATH + 'testSet.txt')
     print(label)
 
     #b, alpha = smoSimple(data, label, 0.6, 0.001, 40)

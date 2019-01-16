@@ -29,7 +29,7 @@ def kernelTrans( X, A, kTup):
     return K
 
 def testRbf(k1=1.3):
-    dataArr,labelArr = loadDataSet(PROJECT_PATH + 'testSetRBF.txt')
+    dataArr,labelArr = loadDataSet(PROJECT_DATA_PATH + 'testSetRBF.txt')
     b,alphas = SMO_platt.smoP(dataArr, labelArr, 200, 0.0001, 10000, ('rbf', k1)) #C=200 important
     datMat=mat(dataArr)
     labelMat = mat(labelArr).transpose()
@@ -45,7 +45,7 @@ def testRbf(k1=1.3):
         if sign(predict)!=sign(labelArr[i]): errorCount += 1
     print("the training error rate is: %f" % (float(errorCount)/m))
 
-    dataArr,labelArr = loadDataSet(PROJECT_PATH + 'testSetRBF2.txt')
+    dataArr,labelArr = loadDataSet(PROJECT_DATA_PATH + 'testSetRBF2.txt')
     errorCount = 0
     datMat=mat(dataArr)
     labelMat = mat(labelArr).transpose()

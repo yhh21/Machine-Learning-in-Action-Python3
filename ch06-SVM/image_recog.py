@@ -37,7 +37,7 @@ def loadImages(dirName):
     return trainingMat, hwLabels
 
 def testDigits(kTup=('rbf', 10)):
-    dataArr,labelArr = loadImages(PROJECT_PATH + 'digits/trainingDigits')
+    dataArr,labelArr = loadImages(PROJECT_DATA_PATH + 'digits/trainingDigits')
     b,alphas = smoP(dataArr, labelArr, 200, 0.0001, 10000, kTup)
     datMat=mat(dataArr)
     labelMat = mat(labelArr).transpose()
@@ -53,7 +53,7 @@ def testDigits(kTup=('rbf', 10)):
         if sign(predict)!=sign(labelArr[i]): errorCount += 1
     print ("the training error rate is: %f" % (float(errorCount)/m))
 
-    dataArr,labelArr = loadImages(PROJECT_PATH + 'digits/testDigits')
+    dataArr,labelArr = loadImages(PROJECT_DATA_PATH + 'digits/testDigits')
     errorCount = 0
     datMat=mat(dataArr)
     labelMat = mat(labelArr).transpose()
