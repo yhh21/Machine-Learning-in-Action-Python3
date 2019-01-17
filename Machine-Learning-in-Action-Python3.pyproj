@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{1d25f142-ceee-496d-8c53-055dca37a94d}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>ch09-Tree_base_regression\__main__.py</StartupFile>
+    <StartupFile>ch10-K_Means_Clustering\__main__.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -85,6 +85,14 @@
     <Compile Include="ch09-Tree_base_regression\RegressionTreeSplit.py" />
     <Compile Include="ch09-Tree_base_regression\__init__.py" />
     <Compile Include="ch09-Tree_base_regression\__main__.py" />
+    <Compile Include="ch10-K_Means_Clustering\BisectingKMeansClustering.py" />
+    <Compile Include="ch10-K_Means_Clustering\KMeansClustering.py" />
+    <Compile Include="ch10-K_Means_Clustering\KMeansSup.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ch10-K_Means_Clustering\MyPath.py" />
+    <Compile Include="ch10-K_Means_Clustering\__init__.py" />
+    <Compile Include="ch10-K_Means_Clustering\__main__.py" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ch02-KNN\data\datingTestSet2.txt" />
@@ -5920,6 +5928,11 @@
     <Content Include="ch09-Tree_base_regression\data\exp2.txt" />
     <Content Include="ch09-Tree_base_regression\data\expTest.txt" />
     <Content Include="ch09-Tree_base_regression\data\sine.txt" />
+    <Content Include="ch10-K_Means_Clustering\data\places.txt" />
+    <Content Include="ch10-K_Means_Clustering\data\Portland.png" />
+    <Content Include="ch10-K_Means_Clustering\data\portlandClubs.txt" />
+    <Content Include="ch10-K_Means_Clustering\data\testSet.txt" />
+    <Content Include="ch10-K_Means_Clustering\data\testSet2.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ch02-KNN" />
@@ -5947,6 +5960,8 @@
     <Folder Include="ch08-Linear_regrs\data" />
     <Folder Include="ch09-Tree_base_regression" />
     <Folder Include="ch09-Tree_base_regression\data" />
+    <Folder Include="ch10-K_Means_Clustering\" />
+    <Folder Include="ch10-K_Means_Clustering\data\" />
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="Global|ContinuumAnalytics|Anaconda36-64" />
