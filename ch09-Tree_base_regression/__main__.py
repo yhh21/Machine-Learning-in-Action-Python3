@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Fri Jul 13 12:21:58 2018
-
-@author: Administrator
-"""
 
 from MyPath import *
 

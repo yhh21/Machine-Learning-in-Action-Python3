@@ -17,7 +17,7 @@ def loadDataSet(fileName):      #general function to parse tab -delimited floats
 def createTree(dataSet, leafType=regLeaf, errType=regErr, ops=(1,4)):#assume dataSet is NumPy Mat so we can array filtering
     feat, val = chooseBestSplit(dataSet, leafType, errType, ops)#choose the best split
     if feat == None:
-       return val #if the splitting hit a stop condition return val
+        return val #if the splitting hit a stop condition return val
     retTree = {}
     retTree['spInd'] = feat
     retTree['spVal'] = val

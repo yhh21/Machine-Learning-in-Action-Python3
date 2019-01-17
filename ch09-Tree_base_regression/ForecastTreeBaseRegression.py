@@ -15,17 +15,17 @@ def modelTreeEval(model, inDat):
 
 def treeForeCast(tree, inData, modelEval=regTreeEval):
     if not isTree(tree):
-       return modelEval(tree, inData)
+        return modelEval(tree, inData)
     if inData[tree['spInd']] > tree['spVal']:
         if isTree(tree['left']):
-           return treeForeCast(tree['left'], inData, modelEval)
+            return treeForeCast(tree['left'], inData, modelEval)
         else:
            return modelEval(tree['left'], inData)
     else:
         if isTree(tree['right']):
-           return treeForeCast(tree['right'], inData, modelEval)
+            return treeForeCast(tree['right'], inData, modelEval)
         else:
-           return modelEval(tree['right'], inData)
+            return modelEval(tree['right'], inData)
         
 def createForeCast(tree, testData, modelEval=regTreeEval):
     m=len(testData)
