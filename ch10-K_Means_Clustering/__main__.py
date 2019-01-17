@@ -6,6 +6,7 @@ from numpy import *
 from KMeansSup import *
 from KMeansClustering import *
 from BisectingKMeansClustering import *
+from TestPlaceKMeansClustering import *
 
 if __name__ == '__main__':
     datMat = mat(loadDataSet(PROJECT_DATA_PATH + 'testSet.txt'))
@@ -14,3 +15,5 @@ if __name__ == '__main__':
     
     datMat = mat(loadDataSet(PROJECT_DATA_PATH + 'testSet2.txt'))
     centList, myNewAssments = biKmeans(datMat, 3)
+
+    clusterClubs(5)
