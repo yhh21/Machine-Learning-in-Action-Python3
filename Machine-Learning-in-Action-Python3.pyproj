@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{1d25f142-ceee-496d-8c53-055dca37a94d}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>ch10-K_Means_Clustering\__main__.py</StartupFile>
+    <StartupFile>ch11-Apriori_Algorithm\__main__.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -94,6 +94,18 @@
     <Compile Include="ch10-K_Means_Clustering\MyPath.py" />
     <Compile Include="ch10-K_Means_Clustering\__init__.py" />
     <Compile Include="ch10-K_Means_Clustering\__main__.py" />
+    <Compile Include="ch11-Apriori_Algorithm\AprioriAlgorithm.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ch11-Apriori_Algorithm\AprioriAlgorithmHelper.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ch11-Apriori_Algorithm\AssociationRuleGeneration.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ch11-Apriori_Algorithm\MyPath.py" />
+    <Compile Include="ch11-Apriori_Algorithm\__init__.py" />
+    <Compile Include="ch11-Apriori_Algorithm\__main__.py" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ch02-KNN\data\datingTestSet2.txt" />
@@ -5934,6 +5946,12 @@
     <Content Include="ch10-K_Means_Clustering\data\portlandClubs.txt" />
     <Content Include="ch10-K_Means_Clustering\data\testSet.txt" />
     <Content Include="ch10-K_Means_Clustering\data\testSet2.txt" />
+    <Content Include="ch11-Apriori_Algorithm\data\bills20DataSet.txt" />
+    <Content Include="ch11-Apriori_Algorithm\data\lawAssnRules.txt" />
+    <Content Include="ch11-Apriori_Algorithm\data\meaning20.txt" />
+    <Content Include="ch11-Apriori_Algorithm\data\mushroom.dat" />
+    <Content Include="ch11-Apriori_Algorithm\data\recent100bills.txt" />
+    <Content Include="ch11-Apriori_Algorithm\data\recent20bills.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ch02-KNN" />
@@ -5963,6 +5981,8 @@
     <Folder Include="ch09-Tree_base_regression\data" />
     <Folder Include="ch10-K_Means_Clustering\" />
     <Folder Include="ch10-K_Means_Clustering\data\" />
+    <Folder Include="ch11-Apriori_Algorithm\" />
+    <Folder Include="ch11-Apriori_Algorithm\data\" />
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="Global|ContinuumAnalytics|Anaconda36-64" />
