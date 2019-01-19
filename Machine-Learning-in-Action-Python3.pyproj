@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{1d25f142-ceee-496d-8c53-055dca37a94d}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>ch11-Apriori_Algorithm\__main__.py</StartupFile>
+    <StartupFile>ch12-FP_Growth\__main__.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -106,6 +106,15 @@
     <Compile Include="ch11-Apriori_Algorithm\MyPath.py" />
     <Compile Include="ch11-Apriori_Algorithm\__init__.py" />
     <Compile Include="ch11-Apriori_Algorithm\__main__.py" />
+    <Compile Include="ch12-FP_Growth\FPTreeBuild.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ch12-FP_Growth\MineFPTree.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ch12-FP_Growth\MyPath.py" />
+    <Compile Include="ch12-FP_Growth\__init__.py" />
+    <Compile Include="ch12-FP_Growth\__main__.py" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ch02-KNN\data\datingTestSet2.txt" />
@@ -5952,6 +5961,7 @@
     <Content Include="ch11-Apriori_Algorithm\data\mushroom.dat" />
     <Content Include="ch11-Apriori_Algorithm\data\recent100bills.txt" />
     <Content Include="ch11-Apriori_Algorithm\data\recent20bills.txt" />
+    <Content Include="ch12-FP_Growth\data\kosarak.dat" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ch02-KNN" />
@@ -5983,6 +5993,8 @@
     <Folder Include="ch10-K_Means_Clustering\data\" />
     <Folder Include="ch11-Apriori_Algorithm\" />
     <Folder Include="ch11-Apriori_Algorithm\data\" />
+    <Folder Include="ch12-FP_Growth\" />
+    <Folder Include="ch12-FP_Growth\data\" />
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="Global|ContinuumAnalytics|Anaconda36-64" />
